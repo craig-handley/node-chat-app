@@ -38,6 +38,10 @@ io.on('connection', (socket) => {
             return callback('Name and room name are required.');
         }
 
+        if (users.userExists(params.name)) {
+            return callback(`User ${params.name} is already in chat please select a unique name`);
+        }
+
         socket.join(params.room);
 
         users.removeUser(socket.id);

@@ -31,6 +31,10 @@ class Users {
         var users = this.users.filter((user) => user.room === room);
         return users.map((user) => user.name);
     }
+
+    userExists(name) {
+        return this.users.find(user => user['name'] === name);
+    }
 }
 
 module.exports = { Users };
